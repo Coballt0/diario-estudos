@@ -13,9 +13,8 @@ st.set_page_config(
 
 # ── Conexão com Supabase ───────────────────────────────────────
 load_dotenv()
-
-url = os.getenv('SUPABASE_URL')
-key = os.getenv('SUPABASE_KEY')
+url = os.getenv('SUPABASE_URL') or st.secrets.get('SUPABASE_URL')
+key = os.getenv('SUPABASE_KEY') or st.secrets.get('SUPABASE_KEY')
 
 @st.cache_resource
 def conectar():
